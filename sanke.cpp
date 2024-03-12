@@ -30,9 +30,6 @@ int main() {
         Sleep(1000); // 1000 milliseconds = 1 second
         print(" . ", i, i,FOREGROUND_GREEN | FOREGROUND_INTENSITY);
     }
-
-
-    
     scanf("%d");
     return 0;
 }
