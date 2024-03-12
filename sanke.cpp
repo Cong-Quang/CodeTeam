@@ -1,6 +1,6 @@
 #include <cstdio>
 #include <Windows.h>
-//hello
+//not hello
 typedef struct COLOR
 {
     char name;
