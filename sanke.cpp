@@ -8,6 +8,12 @@ typedef struct COLOR
 }color;
 void print(const char* s, int x, int y) // in ra 1 chuỗi s ở vị trí x y trên màn hình
 {
+
+
+
+
+
+    
     COORD coord;
     coord.X = x;
     coord.Y = y;
