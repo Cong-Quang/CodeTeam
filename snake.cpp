@@ -136,6 +136,7 @@ void render() {
 
 int main() {
     system("cls");
+    system("title = snake full color");
     srand(time(0));
     // Khởi tạo rắn ban đầu
     snake.push_back(Point(9, 10));
