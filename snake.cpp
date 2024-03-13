@@ -42,8 +42,8 @@ void generateFruit() {
     // Tạo vị trí mới cho quả trái cây ngẫu nhiên
     fruit.x = rand() % WIDTH;
     fruit.y = rand() % HEIGHT;
-    if(fruit.x == 0 || fruit.x == WIDTH || fruit.x == HEIGHT ||
-        fruit.y == 0 || fruit.y == WIDTH || fruit.y == HEIGHT){
+    if(fruit.x == 1 || fruit.x == WIDTH || fruit.x == HEIGHT ||
+        fruit.y == 1 || fruit.y == WIDTH || fruit.y == HEIGHT){
         fruit.x = rand() % WIDTH;
         fruit.y = rand() % HEIGHT;
     }
@@ -115,11 +115,11 @@ void render() {
     // Vẽ đường biên
     for (int i = 0; i < WIDTH; ++i) {
         print("#", i, 0); // Đường biên trên
-        print("#", i, HEIGHT - 1); // Đường biên dưới
+        print("#", i, HEIGHT); // Đường biên dưới
     }
     for (int i = 0; i < HEIGHT; ++i) {
         print("#", 0, i); // Đường biên trái
-        print("#", WIDTH - 1, i); // Đường biên phải
+        print("#", WIDTH, i); // Đường biên phải
     }
     print("O", snake.front().x, snake.front().y); // Vẽ đầu của rắn
     for (size_t i = 1; i < snake.size(); ++i) {
