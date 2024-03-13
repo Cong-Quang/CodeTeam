@@ -129,6 +129,9 @@ void render() {
     char scoreStr[50];
     sprintf(scoreStr, "Score: %d", score);
     print(scoreStr, WIDTH + 5, HEIGHT/2,rand() % 10 + 1); // Hiển thị điểm số
+    print("code by", WIDTH + 5, HEIGHT/2+1); // Hiển thị name 
+    print("Team A5", WIDTH + 5, HEIGHT/2+2,rand() % 20 + 1); // Hiển thị name 
+    print("              ", WIDTH+1, HEIGHT+1); // fix laij điểm ảnh
 }
 
 int main() {
