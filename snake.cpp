@@ -101,9 +101,8 @@ void update() {
     } else {
          Point tailSnake = snake.back(); // Lấy vị trí của phần đuôi cuối cùng của con rắn
         snake.pop_back(); // Xóa phần đuôi của rắn
-        print(" ", tailSnake.x, tailSnake.y); // Xóa hiển thị của phần đuôi cũ trên màn hình // fix lag
+        print(" ", tailSnake.x, tailSnake.y); // Xóa hiển thị của phần đuôi cũ trên màn hình // fix l
     }
-
     snake.insert(snake.begin(), newHead); // Thêm đầu mới vào đầu danh sách
 }
 
