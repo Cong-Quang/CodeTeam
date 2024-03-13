@@ -40,8 +40,13 @@ char readKey() {
 
 void generateFruit() {
     // Tạo vị trí mới cho quả trái cây ngẫu nhiên
-    fruit.x = rand() % WIDTH - 3;
-    fruit.y = rand() % HEIGHT - 3;
+    fruit.x = rand() % WIDTH;
+    fruit.y = rand() % HEIGHT;
+    if(fruit.x == 0 || fruit.x == WIDTH || fruit.x == HEIGHT ||
+        fruit.y == 0 || fruit.y == WIDTH || fruit.y == HEIGHT){
+        fruit.x = rand() % WIDTH;
+        fruit.y = rand() % HEIGHT;
+    }
 }
 
 void update() {
@@ -123,7 +128,7 @@ void render() {
     print("P", fruit.x, fruit.y, rand() % 10 + 1); // Vẽ quả trái cây với màu sắc khác nhau
     char scoreStr[50];
     sprintf(scoreStr, "Score: %d", score);
-    print(scoreStr,WIDTH+3,HEIGHT/2,0);
+    print(scoreStr, WIDTH + 5, HEIGHT/2,rand() % 10 + 1); // Hiển thị điểm số
 }
 
 int main() {
