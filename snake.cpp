@@ -101,6 +101,15 @@ void update() {
 
 void render() {
     system("cls");
+    // Vẽ đường biên
+    for (int i = 0; i < WIDTH; ++i) {
+        print("#", i, 0); // Đường biên trên
+        print("#", i, HEIGHT - 1); // Đường biên dưới
+    }
+    for (int i = 0; i < HEIGHT; ++i) {
+        print("#", 0, i); // Đường biên trái
+        print("#", WIDTH - 1, i); // Đường biên phải
+    }
     print("O", snake.front().x, snake.front().y);
     for (size_t i = 1; i < snake.size(); ++i) {
         print("o", snake[i].x, snake[i].y);
@@ -119,7 +128,6 @@ int main() {
     generateFruit();
     score = 0;
     dir = RIGHT;
-
     while (true) {
         update();
         render();
