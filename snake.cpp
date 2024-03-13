@@ -39,14 +39,9 @@ char readKey() {
 }
 
 void generateFruit() {
-    // Tạo vị trí mới cho quả trái cây ngẫu nhiên
-    fruit.x = rand() % WIDTH;
-    fruit.y = rand() % HEIGHT;
-    if(fruit.x == 1 || fruit.x == WIDTH || fruit.x == HEIGHT ||
-        fruit.y == 1 || fruit.y == WIDTH || fruit.y == HEIGHT){
-        fruit.x = rand() % WIDTH;
-        fruit.y = rand() % HEIGHT;
-    }
+    // Tạo vị trí mới cho quả trái cây ngẫu nhiên, nhưng chỉ trong phần bên trong của đường biên
+    fruit.x = 1 + rand() % (WIDTH - 2); // Phần bên trong của chiều rộng đường biên
+    fruit.y = 1 + rand() % (HEIGHT - 2); // Phần bên trong của chiều cao đường biên
 }
 
 void update() {
@@ -54,16 +49,20 @@ void update() {
     // Đọc phím người chơi và thiết lập hướng di chuyển
     switch (input) {
         case 'w':
-            dir = UP;
+            if (dir != DOWN) // Không thể di chuyển ngược lại với hướng hiện tại
+                dir = UP;
             break;
         case 's':
-            dir = DOWN;
+            if (dir != UP)
+                dir = DOWN;
             break;
         case 'a':
-            dir = LEFT;
+            if (dir != RIGHT)
+                dir = LEFT;
             break;
         case 'd':
-            dir = RIGHT;
+            if (dir != LEFT)
+                dir = RIGHT;
             break;
     }
 
@@ -85,7 +84,7 @@ void update() {
     }
 
     // Kiểm tra va chạm với biên
-    if (newHead.x < 0 || newHead.x >= WIDTH || newHead.y < 0 || newHead.y >= HEIGHT) {
+    if (newHead.x <= 0 || newHead.x >= WIDTH - 1 || newHead.y <= 0 || newHead.y >= HEIGHT - 1) {
         print("Game Over! Press any key to exit...", WIDTH / 2 - 7, HEIGHT / 2);
         readKey();
         exit(0);
@@ -110,27 +109,6 @@ void update() {
     snake.insert(snake.begin(), newHead); // Thêm đầu mới vào đầu danh sách
 }
 
-void render() {
-    system("cls"); // Xóa màn hình
-    // Vẽ đường biên
-    for (int i = 0; i < WIDTH; ++i) {
-        print("#", i, 0); // Đường biên trên
-        print("#", i, HEIGHT); // Đường biên dưới
-    }
-    for (int i = 0; i < HEIGHT; ++i) {
-        print("#", 0, i); // Đường biên trái
-        print("#", WIDTH, i); // Đường biên phải
-    }
-    print("O", snake.front().x, snake.front().y); // Vẽ đầu của rắn
-    for (size_t i = 1; i < snake.size(); ++i) {
-        print("o", snake[i].x, snake[i].y); // Vẽ phần thân của rắn
-    }
-    print("P", fruit.x, fruit.y, rand() % 10 + 1); // Vẽ quả trái cây với màu sắc khác nhau
-    char scoreStr[50];
-    sprintf(scoreStr, "Score: %d", score);
-    print(scoreStr, WIDTH + 5, HEIGHT/2,rand() % 10 + 1); // Hiển thị điểm số
-}
-
 int main() {
     srand(time(0));
     // Khởi tạo rắn ban đầu
@@ -143,7 +121,7 @@ int main() {
     while (true) {
         update(); // Cập nhật trạng thái của trò chơi
         render(); // Vẽ trạng thái mới của trò chơi
-        this_thread::sleep_for(chrono::milliseconds(150)); // Chờ 100ms trước khi cập nhật lại trạng thái
+        this_thread::sleep_for(chrono::milliseconds(170)); // Chờ 100ms trước khi cập nhật lại trạng thái
     }
 
     return 0;
