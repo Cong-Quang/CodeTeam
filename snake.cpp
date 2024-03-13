@@ -117,9 +117,9 @@ void render() {
         print("#", 0, i); // Đường biên trái
         print("#", WIDTH, i); // Đường biên phải
     }
-    print("O", snake.front().x, snake.front().y); // Vẽ đầu của rắn
+    print("O", snake.front().x, snake.front().y,rand() % 15 + 1); // Vẽ đầu của rắn
     for (size_t i = 1; i < snake.size(); ++i) {
-        print("o", snake[i].x, snake[i].y); // Vẽ phần thân của rắn
+        print("o", snake[i].x, snake[i].y,rand() % 13 + 1); // Vẽ phần thân của rắn
     }
     print("P", fruit.x, fruit.y, rand() % 10 + 1); // Vẽ quả trái cây với màu sắc khác nhau
     char scoreStr[50];
