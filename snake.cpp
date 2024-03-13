@@ -40,8 +40,8 @@ char readKey() {
 
 void generateFruit() {
     // Tạo vị trí mới cho quả trái cây ngẫu nhiên
-    fruit.x = rand() % WIDTH;
-    fruit.y = rand() % HEIGHT;
+    fruit.x = rand() % WIDTH - 2;
+    fruit.y = rand() % HEIGHT - 2;
 }
 
 void update() {
