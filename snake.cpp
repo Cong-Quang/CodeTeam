@@ -40,8 +40,8 @@ char readKey() {
 
 void generateFruit() {
     // Tạo vị trí mới cho quả trái cây ngẫu nhiên
-    fruit.x = rand() % WIDTH - 2;
-    fruit.y = rand() % HEIGHT - 2;
+    fruit.x = rand() % WIDTH - 3;
+    fruit.y = rand() % HEIGHT - 3;
 }
 
 void update() {
@@ -138,7 +138,7 @@ int main() {
     while (true) {
         update(); // Cập nhật trạng thái của trò chơi
         render(); // Vẽ trạng thái mới của trò chơi
-        this_thread::sleep_for(chrono::milliseconds(100)); // Chờ 100ms trước khi cập nhật lại trạng thái
+        this_thread::sleep_for(chrono::milliseconds(150)); // Chờ 100ms trước khi cập nhật lại trạng thái
     }
 
     return 0;
