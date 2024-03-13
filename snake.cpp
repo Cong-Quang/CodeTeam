@@ -49,16 +49,20 @@ void update() {
     // Đọc phím người chơi và thiết lập hướng di chuyển
     switch (input) {
         case 'w':
-            dir = UP;
+            if (dir != DOWN) // Không thể di chuyển ngược lại với hướng hiện tại
+                dir = UP;
             break;
         case 's':
-            dir = DOWN;
+            if (dir != UP)
+                dir = DOWN;
             break;
         case 'a':
-            dir = LEFT;
+            if (dir != RIGHT)
+                dir = LEFT;
             break;
         case 'd':
-            dir = RIGHT;
+            if (dir != LEFT)
+                dir = RIGHT;
             break;
     }
 
