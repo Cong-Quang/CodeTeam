@@ -123,7 +123,7 @@ void render() {
     print("P", fruit.x, fruit.y, rand() % 10 + 1); // Vẽ quả trái cây với màu sắc khác nhau
     char scoreStr[50];
     sprintf(scoreStr, "Score: %d", score);
-    print(scoreStr, 0, HEIGHT + 1); // Hiển thị điểm số
+    print(scoreStr,WIDTH+3,HEIGHT/2,0);
 }
 
 int main() {
