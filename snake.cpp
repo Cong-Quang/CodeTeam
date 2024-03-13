@@ -44,6 +44,7 @@ void generateFruit() {
     fruit.y = 1 + rand() % (HEIGHT - 2); // Phần bên trong của chiều cao đường biên
 }
 
+
 void update() {
     char input = readKey();
     // Đọc phím người chơi và thiết lập hướng di chuyển
@@ -107,6 +108,27 @@ void update() {
     }
 
     snake.insert(snake.begin(), newHead); // Thêm đầu mới vào đầu danh sách
+}
+
+void render() {
+    system("cls"); // Xóa màn hình
+    // Vẽ đường biên
+    for (int i = 0; i < WIDTH; ++i) {
+        print("*", i, 0); // Đường biên trên
+        print("*", i, HEIGHT - 1); // Đường biên dưới
+    }
+    for (int i = 0; i < HEIGHT; ++i) {
+        print("*", 0, i); // Đường biên trái
+        print("*", WIDTH - 1, i); // Đường biên phải
+    }
+    print("O", snake.front().x, snake.front().y); // Vẽ đầu của rắn
+    for (size_t i = 1; i < snake.size(); ++i) {
+        print("o", snake[i].x, snake[i].y); // Vẽ phần thân của rắn
+    }
+    print("P", fruit.x, fruit.y, rand() % 10 + 1); // Vẽ quả trái cây với màu sắc khác nhau
+    char scoreStr[50];
+    sprintf(scoreStr, "Score: %d", score);
+    print(scoreStr, 0, HEIGHT + 1); // Hiển thị điểm số
 }
 
 int main() {
