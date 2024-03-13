@@ -40,7 +40,7 @@ char readKey() {
 
 void generateFruit() {
     // Tạo vị trí mới cho quả trái cây ngẫu nhiên
-     fruit.x = 1 + rand() % (WIDTH - 2); // Phần bên trong của chiều rộng đường biên
+    fruit.x = 1 + rand() % (WIDTH - 2); // Phần bên trong của chiều rộng đường biên
     fruit.y = 1 + rand() % (HEIGHT - 2); // Phần bên trong của chiều cao đường biên
 }
 
@@ -99,14 +99,16 @@ void update() {
         score++; // Tăng điểm
         generateFruit(); // Tạo quả trái cây mới
     } else {
+         Point tailSnake = snake.back(); // Lấy vị trí của phần đuôi cuối cùng của con rắn
         snake.pop_back(); // Xóa phần đuôi của rắn
+        print(" ", tailSnake.x, tailSnake.y); // Xóa hiển thị của phần đuôi cũ trên màn hình // fix lag
     }
 
     snake.insert(snake.begin(), newHead); // Thêm đầu mới vào đầu danh sách
 }
 
 void render() {
-    system("cls"); // Xóa màn hình
+   // system("cls"); // Xóa màn hình
     // Vẽ đường biên
     for (int i = 0; i < WIDTH; ++i) {
         print("#", i, 0); // Đường biên trên
@@ -127,6 +129,7 @@ void render() {
 }
 
 int main() {
+    system("cls");
     srand(time(0));
     // Khởi tạo rắn ban đầu
     snake.push_back(Point(9, 10));
