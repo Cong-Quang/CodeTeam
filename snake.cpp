@@ -84,7 +84,7 @@ void update() {
     }
 
     // Kiểm tra va chạm với biên
-    if (newHead.x < 0 || newHead.x >= WIDTH || newHead.y < 0 || newHead.y >= HEIGHT) {
+    if (newHead.x <= 0 || newHead.x >= WIDTH || newHead.y < 1 || newHead.y >= HEIGHT) {
         print("Game Over! Press any key to exit...", WIDTH / 2 - 7, HEIGHT / 2);
         readKey();
         exit(0);
