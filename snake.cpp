@@ -4,7 +4,7 @@
 #include <cstdio>
 #include <conio.h>
 #include <Windows.h>
-
+ 
 using namespace std;
 
 const int WIDTH = 40;
