@@ -135,7 +135,7 @@ void render() {
 }
 
 int main() {
-    system("cls");
+    //system("cls"); // t bỏ nó đi
     system("title = snake full color");
     srand(time(0));
     // Khởi tạo rắn ban đầu
