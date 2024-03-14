@@ -4,7 +4,7 @@
 #include <cstdio>
 #include <conio.h>
 #include <Windows.h>
- 
+
 using namespace std;
 
 const int WIDTH = 40;
@@ -31,7 +31,7 @@ void print(const char* s, int x, int y, WORD color = 7) {
     printf("%s", s);
 }
 
-char readKey() { 
+char readKey() {  // dùng để đọc bàn phím khi đc nhấn 
     if (_kbhit()) {
         return _getch();
     }
@@ -84,7 +84,7 @@ void update() {
     }
 
     // Kiểm tra va chạm với biên
-    if (newHead.x <= 0 || newHead.x >= WIDTH || newHead.y < 1 || newHead.y >= HEIGHT) {
+    if (newHead.x < 0 || newHead.x >= WIDTH || newHead.y < 0 || newHead.y >= HEIGHT) {
         print("Game Over! Press any key to exit...", WIDTH / 2 - 7, HEIGHT / 2);
         readKey();
         exit(0);
@@ -117,7 +117,7 @@ void render() {
         print("#", i, 0); // Đường biên trên
         print("#", i, HEIGHT); // Đường biên dưới
     }
-    for (int i = 0; i < HEIGHT; ++i) {
+    for (int i = 0; i < HEIGHT; ++i) {  
         print("#", 0, i); // Đường biên trái
         print("#", WIDTH, i); // Đường biên phải
     }
