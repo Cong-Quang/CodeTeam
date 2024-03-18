@@ -37,7 +37,9 @@ char readKey() {  // dùng để đọc bàn phím khi đc nhấn
     }
     return '\0';
 }
-
+    void chao(){
+        printf("chao");//test 
+    }
 void generateFruit() {
     // Tạo vị trí mới cho quả trái cây ngẫu nhiên
     fruit.x = 1 + rand() % (WIDTH - 2); // Phần bên trong của chiều rộng đường biên
@@ -82,6 +84,7 @@ void update() {
             newHead.x++;
             break;
     }
+
 
     // Kiểm tra va chạm với biên
     if (newHead.x < 0 || newHead.x >= WIDTH || newHead.y < 0 || newHead.y >= HEIGHT) {
