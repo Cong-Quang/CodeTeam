@@ -37,9 +37,7 @@ char readKey() {  // dùng để đọc bàn phím khi đc nhấn
     }
     return '\0';
 }
-    void chao(){
-        printf("chao");//test 
-    }
+
 void generateFruit() {
     // Tạo vị trí mới cho quả trái cây ngẫu nhiên
     fruit.x = 1 + rand() % (WIDTH - 2); // Phần bên trong của chiều rộng đường biên
