@@ -6,7 +6,7 @@
 #include <Windows.h>
 
 void print(const char* s, int x, int y, WORD color = 7) {
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+   // trp SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
     COORD coord;
     coord.X = x;
     coord.Y = y;
