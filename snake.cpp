@@ -21,7 +21,7 @@ vector<Point> snake; // Danh sách các điểm của rắn
 Point fruit; // Vị trí của quả trái cây
 Direction dir; // Hướng di chuyển hiện tại của rắn
 int score; // Điểm số
-
+// Test Thu Nha A Quang Yeu Dau
 void print(const char* s, int x, int y, WORD color = 7) {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
     COORD coord;
